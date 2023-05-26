@@ -1,0 +1,9 @@
+categoryID,categoryName,description,condition
+1,Beverages,"Soft drinks, Energy drinks, Club soda, Beers, and Wine",Excellent
+2,Condiments,"BBQ sauce, Honey, Relishes, Mayonnaise, and Salsa",Excellent
+3,"Dairy Products","Cheese, Butter, Milk, Yogurt and Egg",Excellent
+4,Cereals,"Rice, Oats, Spaghetti, Pasta, and Cereal",Poor
+5,Meat,"Bacon, Beef, Deli meat, Turkey, and Ham",Good
+6,Fruits,"Apples, Avacaodos, Cherries, Kiwi, and Plums",Excellent
+7,Seafood,"Salmon, tuna and fish",Good
+8,Others,"Baby items, Pet items, Shampoo, Soap, and Paper goods",Poor

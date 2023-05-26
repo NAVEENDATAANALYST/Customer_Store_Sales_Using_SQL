@@ -1,0 +1,85 @@
+Select from all tables:
+select * from categories;
+select * from customers;
+select * from employees;
+select * from order_details;
+select * from orders;
+select * from products;
+select * from shippers;
+select * from suppliers;
+
+
+Queries and answers:
+#1.Retrieve the name as (full name + last name) and salary for all employees
+SELECT CONCAT(First_Name, ' ', Last_Name) AS FullName,salary FROM Employees;
+
+
+#2.Retrieve the product id and sum of quantity for each product from the order details table.
+SELECT ProductID, SUM(Quantity) AS TotalQuantity FROM Order_details GROUP BY ProductID;
+
+
+#3.Retrieve all columns from orders table for those customers who live in united states.
+SELECT * FROM Orders WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE Country = 'United_states');
+
+
+#4.Retrieve the number of orders each customer made.
+SELECT CustomerID, COUNT(OrderID) AS OrderCount FROM Orders GROUP BY CustomerID;
+
+
+#5.Retrieve all columns from employees whose birthday is before 1999-01-01 and having salary greater than 40000.
+SELECT * FROM Employees WHERE Birthday < '1999-01-01' AND Salary > '40000';
+
+
+#6.Retieve the total sales made by each product.
+SELECT products.ProductID, round(SUM(order_details.Quantity * products.Price)) AS TotalSales FROM Order_details inner join products on order_details.productID=products.productID 
+GROUP BY ProductID ;
+
+
+#7.Retrieve the customers who made more than one order.
+SELECT CustomerName FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Orders GROUP BY CustomerID HAVING COUNT(OrderID) >= 2);
+
+
+#8.Retrieve the customer name,order id and employee name for all the orders.
+SELECT Orders.OrderID, Customers.CustomerName, CONCAT(Employees.First_Name, ' ', Employees.Last_Name) AS FullName FROM Orders
+JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID;
+
+
+#9.Retrieve the customers who did not placed any order yet.
+SELECT c.CustomerID, c.CustomerName FROM customers c LEFT JOIN orders o ON c.CustomerID = o.CustomerID
+WHERE o.CustomerID IS NULL;
+
+
+#10.Retrieve the products that are left behind i.e no one has bought.
+SELECT p.ProductID, p.ProductName, od.OrderID FROM products p LEFT JOIN order_details od ON p.ProductID = od.ProductID
+WHERE od.OrderID IS NULL;
+
+
+#11.Retrieve customers together with the products that he bought.
+SELECT c.CustomerID, c.CustomerName, p.ProductName FROM customers c JOIN orders o ON o.CustomerID = c.CustomerID
+JOIN order_details od ON od.OrderID = o.OrderID
+JOIN products p ON p.ProductID = od.ProductID
+ORDER BY c.CustomerID, p.ProductName ASC;
+
+
+#12.Retrieve the most 5 expensive products.
+SELECT ProductID,ProductName,Price FROM products ORDER BY Price DESC LIMIT 5;
+
+
+#13.Retrieve the name of the cheapest product.
+SELECT ProductName FROM products WHERE Price IN (SELECT MIN(Price) FROM products);
+
+
+#14.Retrieve the customers who spent the most money.
+SELECT c.CustomerID, c.CustomerName, round(SUM(od.Quantity * p.Price)) AS TotalSpending FROM orders o
+JOIN customers c ON o.CustomerID = c.CustomerID
+JOIN order_details od ON o.OrderID = od.OrderID
+JOIN products p ON p.ProductID = od.ProductID
+GROUP BY c.CustomerID ORDER BY 3 DESC LIMIT 1;
+
+
+#15.Retrieve the most expensive product in that particular category along with the product name and price of the product.
+SELECT T1.ProductID, T1.ProductName, T1.CategoryID, T1.Price FROM Products T1
+JOIN (SELECT CategoryID, MAX(Price) AS MaxPrice FROM Products 
+GROUP BY CategoryID) T2 ON T1.CategoryID = T2.CategoryID AND T1.Price = T2.MaxPrice;
+

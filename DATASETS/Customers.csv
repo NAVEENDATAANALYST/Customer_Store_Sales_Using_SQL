@@ -1,0 +1,31 @@
+CustomerID,CustomerName,City,State,Region,Country
+1,"Sophia Anderson","Los Angeles",California,South,United_states
+2,"Alexander Chang",Toronto,Ontario,West,Canada
+3,"Emma Smith",London,England,North-east,United_kingdom
+4,"Lucas Rodriguez","Buenos Aires","Buenos Aires",west,United_states
+5,"Isabella Kim",Seoul,Seoul,West,South_korea
+6,"Benjamin Patel",Mumbai,Maharashtra,South-east,India
+7,"Olivia Müller",Munich,Bavaria,South-west,Germany
+8,"Liam Dupont",Paris,Île-de-France,East,France
+9,"Ava Silva","São Paulo","São Paulo",West,Brazil
+10,"Noah Gonzalez","Mexico City",Mexico,South,Mexico
+11,"Ethan Lee","New York City","New York",South,United_states
+12,"Mia Johnson",Sydney,"New South Wales",West,Australia
+13,"Jacob Nguyen","Ho Chi City","Ho Chi City",North,Vietnam
+14,"Sophie Kowalski",Warsaw,"Masovian ",South,Poland
+15,"Michael Hernandez",Barcelona,Catalonia,West,Spain
+16,"Emily Kim",Vancouver,Columbia,North-East,Canada
+17,"Daniel Rossi",Milan,Lombardy,South,Italy
+18,"Amelia Chen",Beijing,Beijing,East,China
+19,"Matthew Schmidt",Berlin,Berlin,West,Germany
+20,"Avery Lefebvre",Montreal,Quebec,North-west,Canada
+21,"Charlotte Dubois",Marseille,Provence,South-east,France
+22,"Sebastian Costa",Cordoba,Cordoba,South-west,Argentina
+23,"Olivia Jensen",Copenhagen,"Capital Region",North,Denmark
+24,James,Dublin,Dublin,North-east,Ireland
+25,"Harper Sato",Tokyo,Tokyo,North-west,Japan
+26,"Logan Dubois",Brussels,Brussels,South-east,Belgium
+27,"Grace Murphy",Houston,Texas,South-west,United_states
+28,"Henry Santos","Rio de Janeiro","Rio de Janeiro",South,Brazil
+29,"Victoria Li",Shanghai,Shanghai,South,China
+30,"Naveen Kumar",Guntur,"Andhra Pradesh",South-west,India
